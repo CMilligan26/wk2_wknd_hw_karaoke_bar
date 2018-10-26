@@ -49,7 +49,11 @@ class GuestTest < MiniTest::Test
   end
 
   def test_guest_woops_at_favourite_song
-    assert_equal("Woop!", @guest.woop_at_favourite_song("Baby Come Back") )
+    assert_equal("Woop! I love this song!", @guest.woop_at_favourite_song("Baby Come Back") )
+  end
+
+  def test_guest_reacts_to_other_songs
+    assert_equal("I'm singing Baby Got Back!", @guest.woop_at_favourite_song("Baby Got Back") )
   end
 
 end
