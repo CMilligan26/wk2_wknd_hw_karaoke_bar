@@ -7,8 +7,8 @@ class Room
     @current_guest_list = []
   end
 
-  def has_karaoke_machine
-    !@karaoke_machine.nil?
+  def show_karaoke_machine
+    @karaoke_machine
   end
 
   def has_bar

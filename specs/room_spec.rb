@@ -8,11 +8,11 @@ require_relative('../drink')
 class RoomTest < MiniTest::Test
 
   def setup
-    karaoke_machine = KaraokeMachine.new(["Not Too Soon", "Kissability"])
+    @karaoke_machine = KaraokeMachine.new(["Not Too Soon", "Kissability"])
     drink_1 = Drink.new("Coke", 1)
     drink_2 = Drink.new("Red Bull", 2)
     bar = Bar.new([drink_1, drink_2])
-    @room = Room.new(karaoke_machine, bar, 2)
+    @room = Room.new(@karaoke_machine, bar, 2)
   end
 
   #CREATED
@@ -22,8 +22,8 @@ class RoomTest < MiniTest::Test
   end
 
   #KARAOKE MACHINE
-  def test_room_has_karaoke_machine
-    assert_equal(true, @room.has_karaoke_machine)
+  def test_room_can_show_karaoke_machine
+    assert_equal(@karaoke_machine, @room.show_karaoke_machine)
   end
 
   #BAR
