@@ -1,7 +1,6 @@
 require('minitest/autorun')
 require('minitest/rg')
 require_relative('../front_desk')
-# require_relative('../guest')
 
 class GuestTest < MiniTest::Test
 
