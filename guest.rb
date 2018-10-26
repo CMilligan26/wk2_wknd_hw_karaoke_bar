@@ -1,8 +1,8 @@
 class Guest
 
-  def initialize(name, favourite_song)
+  def initialize(name, wallet, favourite_song)
     @name = name
-    @wallet = 100
+    @wallet = wallet
     @favourite_song = favourite_song
   end
 

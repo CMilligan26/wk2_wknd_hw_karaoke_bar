@@ -2,6 +2,11 @@ class Viewer
 
 #SET UP GUEST
 
+def ask_how_much_money_the_guest_has
+  puts "How much money do you have in your wallet?"
+  return gets.chomp.to_i
+end
+
 def ask_for_guests_name (staff_member_name)
   puts "Welcome to Karaoke Bar, i'm #{staff_member_name}!"
   puts "Can I take your name please?"

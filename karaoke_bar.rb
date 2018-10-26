@@ -22,10 +22,11 @@ rooms = [terminal_room]
 
 #Ask for Guests details
 
+guest_wallet = terminal_print.ask_how_much_money_the_guest_has
 guest_name = terminal_print.ask_for_guests_name(terminal_front_desk.provide_staff_member_name)
 guest_favourite_song = terminal_print.ask_for_guests_favorite_song(guest_name)
 
-terminal_guest = Guest.new(guest_name, guest_favourite_song)
+terminal_guest = Guest.new(guest_name, guest_wallet, guest_favourite_song)
 #Respond to favourite song
 
 room_that_has_song = false
@@ -46,3 +47,9 @@ if terminal_guest.can_afford(terminal_print.give_rate_for_room(terminal_front_de
 else
   terminal_print.you_cannot_afford_this
 end
+
+terminal_front_desk.accept_cash(terminal_front_desk.provide_entry_fee)
+terminal_guest.spend_money(terminal_front_desk.provide_entry_fee)
+terminal_front_desk.check_in_guest(terminal_guest.provide_name)
+
+#Checked and go to room
