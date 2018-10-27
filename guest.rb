@@ -19,9 +19,9 @@ class Guest
   end
 
   def spend_money(price)
-    return 0 if can_afford(price) == false
+    return false if can_afford(price) == false
     @wallet -= price
-    return price
+    return true
   end
 
   def has_favourite_song
@@ -30,7 +30,7 @@ class Guest
 
   def woop_at_favourite_song(song)
     return "Woop! I love this song!" if @favourite_song == song
-    "I'm singing #{song}!"
+    "I'm singing #{song}! I'm having fun!"
   end
 
 end

@@ -16,7 +16,7 @@ class Bar
 
   def display_drinks_list
     @drinks_list.reduce("") { | list, drink |
-      list + drink.provide_name + ": " + drink.provide_price.to_s + ", "
+      list + drink.provide_name + ": £" + drink.provide_price.to_s + ", "
     }.slice!(0..-3)
   end
 
@@ -24,6 +24,14 @@ class Bar
     @drinks_list.each do | drink |
       return true if drink_to_provide == drink.provide_name
     end
+  end
+
+  def provide_drink_price(drink_to_get_price_for)
+    @drinks_list.each {| drink |
+      if drink.provide_name == drink_to_get_price_for
+        return drink.provide_price
+      end
+      }
   end
 
   def accept_cash(cash)

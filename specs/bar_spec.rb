@@ -36,11 +36,15 @@ class BarTest < MiniTest::Test
   #DRINKS LIST
 
   def test_bar_display_drinks_list
-    assert_equal("Coke: 1, Red Bull: 2", @bar.display_drinks_list)
+    assert_equal("Coke: £1, Red Bull: £2", @bar.display_drinks_list)
   end
 
   def test_provide_drink_from_drinks_list
     assert_equal(true, @bar.provide_drink("Coke"))
+  end
+
+  def test_bar_can_provide_drink_price
+    assert_equal(1, @bar.provide_drink_price("Coke"))
   end
 
 end

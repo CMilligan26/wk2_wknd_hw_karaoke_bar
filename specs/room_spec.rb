@@ -11,8 +11,8 @@ class RoomTest < MiniTest::Test
     @karaoke_machine = KaraokeMachine.new(["Not Too Soon", "Kissability"])
     drink_1 = Drink.new("Coke", 1)
     drink_2 = Drink.new("Red Bull", 2)
-    bar = Bar.new([drink_1, drink_2])
-    @room = Room.new(@karaoke_machine, bar, 2)
+    @bar = Bar.new([drink_1, drink_2])
+    @room = Room.new("Room 1", @karaoke_machine, @bar, 2)
   end
 
   #CREATED
@@ -21,14 +21,20 @@ class RoomTest < MiniTest::Test
     assert_equal(Room, @room.class)
   end
 
+  #NAME
+
+  def test_room_provides_name
+    assert_equal("Room 1", @room.provide_name)
+  end
+
   #KARAOKE MACHINE
   def test_room_can_show_karaoke_machine
     assert_equal(@karaoke_machine, @room.show_karaoke_machine)
   end
 
   #BAR
-  def test_room_has_bar
-    assert_equal(true, @room.has_bar)
+  def test_room_can_show_bar
+    assert_equal(@bar, @room.show_bar)
   end
 
   #CAPACITY

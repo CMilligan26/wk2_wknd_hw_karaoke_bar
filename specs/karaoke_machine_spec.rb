@@ -17,7 +17,7 @@ class KaraokeMachineTest < MiniTest::Test
   #SONG LIST
 
   def test_karaoke_machine_display_song_list
-    assert_equal(["Song 1", "Song 2"], @karaoke_machine.display_song_list)
+    assert_equal("Songs: Song 1, Song 2", @karaoke_machine.display_song_list)
   end
 
   def test_provide_song_from_song_list

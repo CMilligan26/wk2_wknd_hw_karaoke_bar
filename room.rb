@@ -1,18 +1,23 @@
 class Room
 
-  def initialize(karaoke_machine, bar, capacity)
+  def initialize(name, karaoke_machine, bar, capacity)
+    @name = name
     @karaoke_machine = karaoke_machine
     @bar = bar
     @capacity = capacity
     @current_guest_list = []
   end
 
+  def provide_name
+    @name
+  end
+
   def show_karaoke_machine
     @karaoke_machine
   end
 
-  def has_bar
-    !@bar.nil?
+  def show_bar
+    @bar
   end
 
   def give_capacity
@@ -25,6 +30,7 @@ class Room
 
   def enter_guest(guest)
     return false if @current_guest_list.length >= give_capacity
+    # return false if @current_guest_list.include?(guest) == true
     starting_current_guest_list = @current_guest_list.length
     @current_guest_list << guest
     @current_guest_list.length > starting_current_guest_list

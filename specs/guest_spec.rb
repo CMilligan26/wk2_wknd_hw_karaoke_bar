@@ -35,11 +35,11 @@ class GuestTest < MiniTest::Test
   end
 
   def test_guest_can_spend_money__true
-    assert_equal(60, @guest.spend_money(60))
+    assert_equal(true, @guest.spend_money(60))
   end
 
   def test_guest_can_spend_money__false
-    assert_equal(0, @guest.spend_money(150))
+    assert_equal(false, @guest.spend_money(150))
   end
 
   #FAVOURITE SONG
