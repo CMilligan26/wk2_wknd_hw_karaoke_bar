@@ -15,7 +15,7 @@ class Viewer
 
   def ask_for_guests_favorite_song(name)
     puts "Hi #{name}! What is your favourite song?"
-    return gets.chomp
+    return gets.chomp.split.map{| word | word.capitalize}.join(" ")
   end
 
   def do_we_have_that_song(true_or_false)
@@ -26,7 +26,7 @@ class Viewer
   #INTERACT WITH FRONT DESK
 
   def give_rate_for_room(price)
-    puts "So, if you would like to join a room for karaoke the price is £#{price} for an hour, is that ok?"
+    puts "So, if you would like to join a room for karaoke the price is £#{price} for an hour."
     return price
   end
 
@@ -61,7 +61,7 @@ class Viewer
 
   def which_drink
     puts "Which drink would you like?"
-    return gets.chomp
+    return gets.chomp.split.map{| word | word.capitalize}.join(" ")
   end
 
   def cannot_afford_drink
@@ -87,7 +87,7 @@ class Viewer
 
   def which_song
     puts "Which song would you like?"
-    return gets.chomp
+    return gets.chomp.split.map{| word | word.capitalize}.join(" ")
   end
 
   def choose_song_that_does_not_exist
@@ -120,8 +120,8 @@ class Viewer
   def tally_up (front_desk_staff_member_name, bar_staff_member_name, guest_name, front_desk_total_cash, bar_total_cash)
     puts "Meanwhile...at the Karaoke Bar"
     puts "#{front_desk_staff_member_name} receives the bar money from #{bar_staff_member_name}"
-    puts "#{front_desk_staff_member_name} adds the bar takens of #{bar_total_cash} to the front desk takens of #{front_desk_total_cash}"
-    puts "In total the Karaoke Bar took #{bar_total_cash + front_desk_total_cash} from #{guest_name}"
+    puts "#{front_desk_staff_member_name} adds the bar takens of £#{bar_total_cash} to the front desk takens of £#{front_desk_total_cash}"
+    puts "In total the Karaoke Bar took £#{bar_total_cash + front_desk_total_cash} from #{guest_name}"
   end
 
 end
