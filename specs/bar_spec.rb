@@ -29,6 +29,10 @@ class BarTest < MiniTest::Test
     assert_equal(true, @bar.has_total_cash)
   end
 
+  def test_provide_total_cash
+    assert_equal(0, @bar.provide_total_cash)
+  end
+
   def test_bar_total_cash_can_accept_cash
     assert_equal(true, @bar.accept_cash(50))
   end

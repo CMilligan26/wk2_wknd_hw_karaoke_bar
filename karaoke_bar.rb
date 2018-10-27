@@ -21,14 +21,13 @@ rooms = [terminal_room]
 
 
 #Ask for Guests details
-
 guest_wallet = terminal_print.ask_how_much_money_the_guest_has
 guest_name = terminal_print.ask_for_guests_name(terminal_front_desk.provide_staff_member_name)
 guest_favourite_song = terminal_print.ask_for_guests_favorite_song(guest_name)
 
 terminal_guest = Guest.new(guest_name, guest_wallet, guest_favourite_song)
-#Respond to favourite song
 
+#Respond to favourite song
 room_that_has_song = nil
 rooms.each { | room |
   room_that_has_song = room if room.show_karaoke_machine.provide_song(guest_favourite_song) == true
@@ -41,7 +40,6 @@ else
 end
 
 #Transaction
-
 if terminal_guest.can_afford(terminal_print.give_rate_for_room(terminal_front_desk.provide_entry_fee)) == true
   terminal_print.you_can_afford_this
 else
@@ -71,7 +69,6 @@ elsif room_that_has_song != nil
 end
 
 #Inside room, go to bar
-
 terminal_print.go_to_bar(terminal_room.show_bar.provide_staff_member_name)
 puts terminal_room.show_bar.display_drinks_list
 
@@ -88,7 +85,6 @@ else
 end
 
 #Inside room, go to karaoke machine
-
 terminal_print.go_to_karaoke_machine
 puts terminal_room.show_karaoke_machine.display_song_list
 
@@ -111,3 +107,9 @@ terminal_room.remove_guest(terminal_guest)
 #Check Out
 terminal_print.check_out
 terminal_front_desk.check_out_guest(terminal_guest)
+
+#Leave
+terminal_print.goodbye(terminal_guest.how_much_in_wallet)
+
+#FRONT DESK TALLYS UP THE MONEY TAKEN FROM THE GUEST
+terminal_print.tally_up(terminal_front_desk.provide_staff_member_name, terminal_room.show_bar.provide_staff_member_name, terminal_guest.provide_name, terminal_front_desk.provide_total_cash, terminal_room.show_bar.provide_total_cash)

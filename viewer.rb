@@ -31,12 +31,12 @@ class Viewer
   end
 
   def you_cannot_afford_this
-    puts "**Sorry, you can't afford this, you leave the Karaoke Bar sad and alone.**"
+    puts "** Sorry, you can't afford this, you leave the Karaoke Bar sad and alone. **"
     exit
   end
 
   def you_can_afford_this
-    puts "**You hand over the money from your wallet.**"
+    puts "** You hand over the money from your wallet. **"
     puts "Thank you, I'm just going to check you in, just a moment please..."
   end
 
@@ -46,8 +46,8 @@ class Viewer
   end
 
   def go_to_room(room_name, staff_member_name)
-    puts "Great, all check in! You'll be going to #{room_name}, please follow me."
-    puts "**You follow #{staff_member_name} to the room and go inside.**"
+    puts "Great, all checked in! You'll be going to #{room_name}, please follow me."
+    puts "** You follow #{staff_member_name} to the room and go inside. **"
   end
 
   #INTERACT WITH ROOM
@@ -65,24 +65,24 @@ class Viewer
   end
 
   def cannot_afford_drink
-    puts "**You see from your wallet that you actually can't afford this drink, you decide to ask for a water and hit the karaoke.**"
+    puts "** You see from your wallet that you actually can't afford this drink, you decide to ask for a water and hit the karaoke. **"
   end
 
   def serve_drink(drink)
-    puts "**You hand over the money**"
+    puts "** You hand over the money **"
     puts "Here you go."
-    puts "**You pick up your #{drink} and head to the karaoke machine.**"
+    puts "** You pick up your #{drink} and head to the karaoke machine. **"
   end
 
   def order_drink_that_does_not_exist
     puts "erm... we don't serve that i'm afraid."
-    puts "**Amazed that they don't serve that drink, you ask for a water instead and head to the karaoke machine.**"
+    puts "** Amazed that they don't serve that drink, you ask for a water instead and head to the karaoke machine. **"
   end
 
   #KARAOKE MACHINE
 
   def go_to_karaoke_machine
-    puts "**You head to the karaoke machine and look at the songs available.**"
+    puts "** You head to the karaoke machine and look at the songs available. **"
   end
 
   def which_song
@@ -91,15 +91,16 @@ class Viewer
   end
 
   def choose_song_that_does_not_exist
-    puts "**You wish they had that song, but they don't, so you decide to choose a song they actually have.**"
+    puts "** You wish they had that song, but they don't, so you decide to choose a song they actually have. **"
   end
 
   #LEAVE ROOM
 
   def leave_room(player_name, front_desk_staff_member_name)
-    puts "**You spend an hour singing karaoke and before you know, it's time to leave**"
+    puts "** You spend an hour singing karaoke and before you know, it's time to leave **"
+    puts "** #{front_desk_staff_member_name} enters the room **"
     puts "Hi #{player_name}, I hope you had fun! Your hour is up i'm afraid."
-    puts "**You follow #{front_desk_staff_member_name} to the front of the bar**"
+    puts "** You follow #{front_desk_staff_member_name} to the front of the bar **"
   end
 
   #CHECK OUT
@@ -110,8 +111,17 @@ class Viewer
   #GOODBYE
 
   def goodbye (guest_money)
-    puts "All done! We hope you come back again soon!"
-    puts "**You leave the bar, your karaoke needs met, and you have £#{guest_money} left!**"
+    puts "All done! Goodbye, we hope you come back again soon!"
+    puts "** You leave the bar, your karaoke needs met, and you have £#{guest_money} left! **"
+  end
+
+  #FRONT DESK TALLYS UP THE MONEY TAKEN FROM THE GUEST
+
+  def tally_up (front_desk_staff_member_name, bar_staff_member_name, guest_name, front_desk_total_cash, bar_total_cash)
+    puts "Meanwhile...at the Karaoke Bar"
+    puts "#{front_desk_staff_member_name} receives the bar money from #{bar_staff_member_name}"
+    puts "#{front_desk_staff_member_name} adds the bar takens of #{bar_total_cash} to the front desk takens of #{front_desk_total_cash}"
+    puts "In total the Karaoke Bar took #{bar_total_cash + front_desk_total_cash} from #{guest_name}"
   end
 
 end

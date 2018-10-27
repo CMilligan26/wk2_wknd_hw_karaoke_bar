@@ -26,6 +26,10 @@ class GuestTest < MiniTest::Test
     assert_equal(true, @guest.has_wallet)
   end
 
+  def test_guest_how_much
+    assert_equal(100, @guest.how_much_in_wallet)
+  end
+
   def test_guest_can_afford_price__true
     assert_equal(true, @guest.can_afford(30))
   end
@@ -53,7 +57,7 @@ class GuestTest < MiniTest::Test
   end
 
   def test_guest_reacts_to_other_songs
-    assert_equal("I'm singing Baby Got Back!", @guest.woop_at_favourite_song("Baby Got Back") )
+    assert_equal("I'm singing Baby Got Back! I'm having fun!", @guest.woop_at_favourite_song("Baby Got Back") )
   end
 
 end

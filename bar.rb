@@ -14,6 +14,10 @@ class Bar
     !@total_cash.nil?
   end
 
+  def provide_total_cash
+    @total_cash
+  end
+
   def display_drinks_list
     @drinks_list.reduce("") { | list, drink |
       list + drink.provide_name + ": £" + drink.provide_price.to_s + ", "

@@ -14,8 +14,12 @@ class Guest
     !@wallet.nil?
   end
 
+  def how_much_in_wallet
+    @wallet
+  end
+
   def can_afford(price)
-    @wallet > price
+    @wallet >= price
   end
 
   def spend_money(price)

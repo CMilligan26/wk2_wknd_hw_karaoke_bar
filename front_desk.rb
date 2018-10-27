@@ -20,6 +20,10 @@ class FrontDesk
     !@total_cash.nil?
   end
 
+  def provide_total_cash
+    @total_cash
+  end
+
   def accept_cash(cash)
     starting_total_cash = @total_cash.clone
     @total_cash += cash

@@ -32,6 +32,10 @@ class GuestTest < MiniTest::Test
     assert_equal(true, @front_desk.has_total_cash)
   end
 
+  def test_front_desk_provide_total_cash
+    assert_equal(0, @front_desk.provide_total_cash)
+  end
+
   def test_front_desk_total_cash_can_accept_cash
     assert_equal(true, @front_desk.accept_cash(50))
   end
