@@ -82,7 +82,7 @@ class Viewer
   #KARAOKE MACHINE
 
   def go_to_karaoke_machine
-    puts "** You head to the karaoke machine and look at the songs available. **"
+    puts "** At the karaoke machine you look at the songs available. **"
   end
 
   def which_song
