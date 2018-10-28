@@ -97,10 +97,10 @@ class Viewer
   #LEAVE ROOM
 
   def leave_room(player_name, front_desk_staff_member_name)
-    puts "** You spend an hour singing karaoke and before you know, it's time to leave **"
-    puts "** #{front_desk_staff_member_name} enters the room **"
+    puts "** You spend an hour singing karaoke and before you know, it's time to leave. **"
+    puts "** #{front_desk_staff_member_name} enters the room. **"
     puts "Hi #{player_name}, I hope you had fun! Your hour is up i'm afraid."
-    puts "** You follow #{front_desk_staff_member_name} to the front of the bar **"
+    puts "** You follow #{front_desk_staff_member_name} to the front of the bar. **"
   end
 
   #CHECK OUT
@@ -118,10 +118,10 @@ class Viewer
   #FRONT DESK TALLYS UP THE MONEY TAKEN FROM THE GUEST
 
   def tally_up (front_desk_staff_member_name, bar_staff_member_name, guest_name, front_desk_total_cash, bar_total_cash)
-    puts "Meanwhile...at the Karaoke Bar"
-    puts "#{front_desk_staff_member_name} receives the bar money from #{bar_staff_member_name}"
-    puts "#{front_desk_staff_member_name} adds the bar takens of £#{bar_total_cash} to the front desk takens of £#{front_desk_total_cash}"
-    puts "In total the Karaoke Bar took £#{bar_total_cash + front_desk_total_cash} from #{guest_name}"
+    puts "Meanwhile...at the Karaoke Bar."
+    puts "#{front_desk_staff_member_name} receives the bar money from #{bar_staff_member_name}."
+    puts "#{front_desk_staff_member_name} adds the bar takens of £#{bar_total_cash} to the front desk takens of £#{front_desk_total_cash}."
+    puts "In total the Karaoke Bar took £#{bar_total_cash + front_desk_total_cash} from #{guest_name}."
   end
 
 end
