@@ -1,6 +1,7 @@
 require_relative('viewer')
 require_relative('guest')
 require_relative('front_desk')
+require_relative('song')
 require_relative('karaoke_machine')
 require_relative('drink')
 require_relative('bar')
@@ -9,7 +10,9 @@ require_relative('room')
 #Initialise simulation
 terminal_print = Viewer.new
 terminal_front_desk = FrontDesk.new
-terminal_karaoke_machine = KaraokeMachine.new(["Baby Come Back", "Baby Got Back"])
+terminal_song_1 = Song.new("Player", "Baby Come Back")
+terminal_song_2 = Song.new("Foreigner", "I Want To Know What Love Is")
+terminal_karaoke_machine = KaraokeMachine.new([terminal_song_1, terminal_song_2])
 terminal_drink_1 = Drink.new("Coke", 1)
 terminal_drink_2 = Drink.new("Red Bull", 2)
 terminal_drink_3 = Drink.new("Beer", 5)
@@ -52,20 +55,29 @@ terminal_front_desk.check_in_guest(terminal_guest.provide_name)
 
 # Go to room
 random_room = nil
+go_to_room = false
 
-if room_that_has_song == nil
-  rooms.each { | room |
-    if room.enter_guest(terminal_guest) == true
-      random_room = room
+while go_to_room == false do
+  if room_that_has_song == nil
+    rooms.each { | room |
+      if room.enter_guest(terminal_guest) == true
+        random_room = room
+      end
+    }
+    if random_room == nil
+      terminal_print.all_rooms_full
+    else
+      terminal_print.go_to_room(random_room.provide_name, terminal_front_desk.provide_staff_member_name)
+      go_to_room = true
     end
-  }
-  if random_room == nil
-    terminal_print.all_rooms_full
-  else
-    terminal_print.go_to_room(random_room.provide_name, terminal_front_desk.provide_staff_member_name)
+  elsif room_that_has_song != nil
+    if room_that_has_song.enter_guest(terminal_guest) == false
+      room_that_has_song == nil
+    else
+      terminal_print.go_to_room(room_that_has_song.provide_name, terminal_front_desk.provide_staff_member_name)
+      go_to_room = true
+    end
   end
-elsif room_that_has_song != nil
-  terminal_print.go_to_room(room_that_has_song.provide_name, terminal_front_desk.provide_staff_member_name)
 end
 
 #Inside room, go to bar
